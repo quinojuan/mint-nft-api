@@ -23,11 +23,11 @@ const getNft = () => {
 
 const putNft = async (req, res) => {
 
-  const { clientSecret, projectId, ntfName, email, name, description, traitType, value } = req.body;
+  const { clientSecret, projectId, nftName, email, name, description, traitType, value } = req.body;
 
   const options = {
     method: "PUT",
-    url: `https://staging.crossmint.io/api/2022-06-09/collections/default-solana/nfts/${ntfName}`, //leandro
+    url: `https://staging.crossmint.io/api/2022-06-09/collections/default-solana/nfts/${nftName}`, //leandro
     headers: {
       "content-type": "application/json",
       "x-client-secret": `${clientSecret}`, // sk_test.pk8ecXDQ.4sEBiSAEz3ViEilri9UyELT915d6c0jG
