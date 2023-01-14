@@ -23,8 +23,8 @@ const getNft = () => {
 
 const putNft = async (req, res) => {
 
-  const { clientSecret, projectId, nftName, email, name, description, traitType, value } = req.body;
-
+  const { clientSecret, projectId, nftName, email, name, description, traitType, value, image } = req.body;
+console.log(image);
   const options = {
     method: "PUT",
     url: `https://staging.crossmint.io/api/2022-06-09/collections/default-solana/nfts/${nftName}`, //leandro
@@ -37,7 +37,7 @@ const putNft = async (req, res) => {
       recipient: `email:${email}:solana`,
       metadata: {
         name: `${name}`, // leandroNFT,
-        image: "https://www.crossmint.io/assets/crossmint/logo.png",
+        image: `${image}`,
         description: `${description}`, // LeaNDRO-description
         attributes: [{ trait_type: `${traitType}`, value: `${value}`}], // algo / true 
       },
