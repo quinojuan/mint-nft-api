@@ -1,6 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
-const studentRoutes = require("./src/student/routes");
+const studentRoutes = require("./src/routes");
 
 const app = express();
 const port = 3001;
