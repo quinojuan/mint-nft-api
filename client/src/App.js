@@ -1,9 +1,9 @@
 import "./App.css";
+import UploadImage from "./components/UploadImage";
 import { useState } from "react";
-import axios from "axios"
+import axios from "axios";
 
 function App() {
-
   const [nft, setNft] = useState({
     image: "",
     nftName: "",
@@ -19,12 +19,12 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await axios.put(`http://localhost:3001/nft`, nft);
-    console.log(response)
+    console.log(response);
   };
 
   const handleChange = (e) => {
     setNft({ ...nft, [e.target.name]: e.target.value });
-    console.log(nft)
+    console.log(nft);
   };
 
   return (
