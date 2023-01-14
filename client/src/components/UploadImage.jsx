@@ -3,9 +3,9 @@ import "./UploadImage.css";
 
 const UploadImage = () => {
   const [images, setImages] = useState([]);
-  const [imageToRemove, setImageToRemove] = useState(null);
+  // const [imageToRemove, setImageToRemove] = useState(null);
 
-  const handleRemoveImg = () => {};
+  // const handleRemoveImg = () => {};
 
   const handleOpenWidget = async () => {
     var myWidget = window.cloudinary.createUploadWidget(
@@ -15,7 +15,8 @@ const UploadImage = () => {
       },
       (error, result) => {
         if (!error && result && result.event === "success") {
-          console.log("Done! Here is the image info: ", result.info.secure_url);
+          console.log(result.info)
+          setImages(result.info.secure_url)
         }
       }
     );
