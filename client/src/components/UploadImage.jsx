@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./UploadImage.css";
-import {Cloudinary} from "@cloudinary/url-gen";
 
 const UploadImage = () => {
   const [images, setImages] = useState([]);
@@ -8,18 +7,19 @@ const UploadImage = () => {
 
   const handleRemoveImg = () => {};
 
-  const handleOpenWidget = () => {
-    var myWidget = Cloudinary.createUploadWidget(
+  const handleOpenWidget = async () => {
+    var myWidget = window.cloudinary.createUploadWidget(
       {
         cloudName: "dumzvr9ih",
         uploadPreset: "fzl9vlnn",
       },
       (error, result) => {
         if (!error && result && result.event === "success") {
-          console.log("Done! Here is the image info: ", result.info);
+          console.log("Done! Here is the image info: ", result.info.secure_url);
         }
       }
     );
+    myWidget.open()
   };
 
   return (

@@ -29,17 +29,17 @@ function App() {
 
   return (
     <div className="contenedor">
-      <h2 class="fw-bold">Create a single NFT</h2>
+      <h2 className="fw-bold">Create a single NFT</h2>
       <br/>
       <br/>
-      <h3 class="fw-bold">Upload files</h3>
+      <h3 className="fw-bold">Upload files</h3>
       <br/>
-      <h5 class="fw-bold">Upload all files you want to mint</h5>
-      <br/>
-      <br/>
+      <h5 className="fw-bold">Upload all files you want to mint</h5>
       <br/>
       <br/>
-      <h3 class="fw-bold">Token details</h3>
+      <br/>
+      <br/>
+      <h3 className="fw-bold">Token details</h3>
       <p>The 'Display name' and 'Description' will be show or on marketplaces, where the NFT is 
         displayed. The information is also stored on the blockchain.
       </p>
@@ -118,13 +118,13 @@ function App() {
           value={nft.image}
           onChange={handleChange}
         ></input>
-        <div class="d-grid gap-2">
-        <button class="btn btn-secondary btn-sm" type="submit">Create NFT</button>
+        <div className="d-grid gap-2">
+        <button className="btn btn-secondary btn-sm" type="submit">Create NFT</button>
         </div>
       </form>
       </div>
       </div>
-    
+    <UploadImage/>
     </div>
   );
 }
