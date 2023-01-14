@@ -23,23 +23,23 @@ function App() {
 
   const handleChange = (e) => {
     setNft({ ...nft, [e.target.name]: e.target.value });
-    console.log(nft);
+    
   };
 
-  const handleOpenWidget = async () => {
-    var myWidget = window.cloudinary.createUploadWidget(
-      {
-        cloudName: "dumzvr9ih",
-        uploadPreset: "fzl9vlnn",
-      },
-      (error, result) => {
-        if (!error && result && result.event === "success") {
-          setNft({ ...nft, image: result.info.secure_url });
-        }
-      }
-    );
-    myWidget.open();
-  };
+  // const handleOpenWidget = async () => {
+  //   var myWidget = window.cloudinary.createUploadWidget(
+  //     {
+  //       cloudName: "dumzvr9ih",
+  //       uploadPreset: "fzl9vlnn",
+  //     },
+  //     (error, result) => {
+  //       if (!error && result && result.event === "success") {
+  //         setNft({ ...nft, image: result.info.secure_url });
+  //       }
+  //     }
+  //   );
+  //   myWidget.open();
+  // };
 
   return (
     <div className="contenedor">
@@ -51,6 +51,13 @@ function App() {
       <h5 className="fw-bold">Upload all files you want to mint</h5>
       <br />
       <br />
+      <input
+              className="form-control mb-3"
+              placeholder="Direct link to your NFT image"
+              name="image"
+              value={nft.image}
+              onChange={handleChange}
+            ></input>
       <br />
       <br />
       <h3 className="fw-bold">Token details</h3>
@@ -59,7 +66,6 @@ function App() {
         where the NFT is displayed. The information is also stored on the
         blockchain.
       </p>
-
       <div className="row">
         <div className="col">
           <form className="mb-4" onSubmit={handleSubmit}>
@@ -112,7 +118,7 @@ function App() {
               onChange={handleChange}
             ></input>
 
-            <input
+            {/* <input
               className="form-control mb-3"
               placeholder="The name of the trait"
               name="traitType"
@@ -126,7 +132,7 @@ function App() {
               name="value"
               value={nft.value}
               onChange={handleChange}
-            ></input>
+            ></input> */}
 
             <div className="d-grid gap-2">
               <button className="btn btn-secondary btn-sm" type="submit">
@@ -136,7 +142,7 @@ function App() {
           </form>
         </div>
       </div>
-      <button onClick={() => handleOpenWidget()}>UPLOAD IMAGE</button>
+      {/* <button onClick={() => handleOpenWidget()}>UPLOAD IMAGE</button> */}
     </div>
   );
 }

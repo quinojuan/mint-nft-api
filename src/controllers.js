@@ -24,7 +24,7 @@ const getNft = () => {
 const putNft = async (req, res) => {
 
   const { clientSecret, projectId, nftName, email, name, description, traitType, value, image } = req.body;
-console.log(image);
+console.log(req.body);
   const options = {
     method: "PUT",
     url: `https://staging.crossmint.io/api/2022-06-09/collections/default-solana/nfts/${nftName}`, //leandro
