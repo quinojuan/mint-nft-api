@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 function App() {
   const [nft, setNft] = useState({
@@ -40,6 +41,10 @@ function App() {
   //   );
   //   myWidget.open();
   // };
+
+  const showAlert =() =>{
+    Swal.fire('Success', 'NFT Created!', 'success')
+  }
 
   return (
     <div className="contenedor">
@@ -118,7 +123,7 @@ function App() {
               onChange={handleChange}
             ></input>
 
-            {/* <input
+            <input
               className="form-control mb-3"
               placeholder="The name of the trait"
               name="traitType"
@@ -132,10 +137,10 @@ function App() {
               name="value"
               value={nft.value}
               onChange={handleChange}
-            ></input> */}
+            ></input>
 
             <div className="d-grid gap-2">
-              <button className="btn btn-secondary btn-sm" type="submit">
+              <button onClick={showAlert} className="btn btn-secondary btn-sm" type="submit">
                 Create NFT
               </button>
             </div>
